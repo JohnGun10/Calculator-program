@@ -3,7 +3,7 @@ import math
 
 class Calculator:
 
-	""" Compute the values of the mathematical operations:
+	''' Compute the values of the mathematical operations:
 
 	Addition: a + b = c
 	Subtraction: a - b = d
@@ -15,62 +15,82 @@ class Calculator:
 	
 	a + b | a - b | a * b | a / b | math.sqrt(n)
 
-	For example:
-	
-	>>> calculator.add(3)
-	3
-	>>> calculator.subtract(1)
-	2
-	>>> calculator.multiply(10)
-	20
-	>>> calculator.divide(5)
-	4.0
-	>>> calculator.root(225)
-	15.0
-	>>> calculator.allocate()
-	0
-
-	"""
+	'''
 	
 	def __init__(self, default=0):
-		"Initializes default value to 0 if not set"
+		"""Initializes default value to 0 if not set (1st example, 2nd example - default=8)
+		>>> calculator.__init__()
+		"""
 		self.default = default
 
-	def add(self, b: int) -> int:
-		'Method to add an integer to a default value, which is 0 if not set'
+	def add(self, b: float) -> float:
+		"""Method to add an integer (a) to a default value, which is 0 if not set.
+		Addition: default + a = c
+		>>> calculator.add(4)
+		4
+		"""
 		addition = self.default + b
 		self.default = addition
-		return addition
-	
-	def subtract(self, b: int) -> int:
-		'Method to subtract an integer from a default value, which is 0 if not set'
-		subtraction = self.default - b
-		self.default = subtraction
-		return subtraction
-	
-	def multiply(self, b: int) -> int:
-		'Method to multiply an integer with a default value, which is 0 if not set'
-		multiplication = self.default * b
-		self.default = multiplication
-		return multiplication
+		return int(addition)
 
-	def divide(self, b: int) -> int:
-		'Method to divide default value by an integer where default value is 0 if not set'
+	def divide(self, b: float) -> float:
+		"""Method to divide default value by an integer (a) where default value is 0 if not set
+		Division: default / a = c
+		>>> calculator.divide(2)
+		0.0
+		"""
 		division = self.default / b
 		self.default = division
 		return division
 
+	def multiply(self, b: float) -> float:
+		"""Method to multiply an integer (a) with a default value, which is 0 if not set
+		Multiplication: default * a = c
+		>>> calculator.multiply(4)
+		0.0
+		"""
+		multiplication = self.default * b
+		self.default = multiplication
+		return multiplication
+
+	def subtract(self, b: float) -> float:
+		"""Method to subtract an integer (a) from a default value, which is 0 if not set
+		Subtraction: default - a = c
+		>>> calculator.subtract(2)
+		-2
+		"""
+		subtraction = self.default - b
+		self.default = subtraction
+		return subtraction
+
 	def root(self, b: float) -> float:
-		'Method to take the root of an integer'
+		"""Method to take the root of an integer (n)
+		Root: sqrt(n) > 0
+		>>> calculator.root(64)
+		8.0
+		>>> calculator.reset()
+		0
+		"""
 		root_of_number = math.sqrt(b)
 		self.default = root_of_number
 		return root_of_number
-	
-	def allocate(self):
-		'Method to reset default memory'
+
+	def allocate(self, a):
+		"""Select the default value by passing argument a (example a = 8)
+		>>> calculator.allocate(0)
+		0
+		"""
+		self.default = a
+		return a
+		
+	def reset(self):
+		"""Method to reset default memory
+		>>> calculator.reset()
+		0
+		"""
 		self.default = 0
 		print(self.default)
-	
+
 
 calculator = Calculator()
 
