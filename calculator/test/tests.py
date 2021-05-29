@@ -29,11 +29,11 @@ def test_addition_negative():
 	_calculator = Calculator()
 	for a in range(-4, -2):
 		if a == -4:
-			assert calculator.add(a) == -4
+			assert _calculator.add(a) == -4
 		elif a == -3:
-			assert calculator.add(a) == -7
+			assert _calculator.add(a) == -7
 		else:
-			assert calculator.add(a) == -9
+			assert _calculator.add(a) == -9
 
 
 def test_subtraction_default():
@@ -199,7 +199,7 @@ def test_root_default():
 			assert _calculator.root(a) == 0
 		elif a == -1:
 			with pytest.raises(ValueError):
-				calculator.root(a)
+				_calculator.root(a)
 		else:
 			assert _calculator.root(a) == 1			
 
