@@ -3,16 +3,18 @@ The package contains calculator.py module that has a Calculator class with metho
 To run the the calculator.py module you will need to have python 3.8.5 installed on your OS. When you run "python calculator.py" command in terminal at the folder that contains the module (in host or through docker) you'll get this output:
 "TestResults(failed=0, attempted=6)"
 In order to run the module and play with it - you'll have to first open python (or python3 or bpython) in terminal. Then import calculator.py: depending on whether you access the package through terminal in your host OS or docker the commands should be either:
->>> from calculator import *
->>> from calculator.calculator import * 
-When you import everything, you then run the commands add(n), subtract(n), multiply(n), divide(n), root(n) (where n is an integer and m is expected to return a float) or simply allocate (to reset memory) by the following syntax in the python prompt:
+>>> from calculator import * (host OS)
+>>> from calculator.calculator import * (Docker) 
+When you import everything, you then run either one of the commands add(n), subtract(n), multiply(n), divide(n), root(n) (where n is an integer and m is expected to return a float) or simply allocate(a) (to change default value to a) or reset (to reset memory) by the following syntax in the python prompt:
 >>> calculator.add(2)
 2
->>> calculator.allocate()
+>>> calculator.reset()
 0
 >>> calculator.subtract(10)
 -10
->>> calculator.multiply(-10)
+>>> calculator.multiply(-8)
+80
+>>> calculator.allocate(100)
 100
 >>> calculator.divide(10)
 10.0
@@ -38,3 +40,18 @@ Tests:
 Doc Test is included when you run python calculator.py, but you can also run it by python -m doctest -v calculator.py which will show that all tests are passed.
 For source files for error we used pyflakes calculator.py and mypy tests.py.
 For typing we ran mypy calculator.py and mypy tests.py.
+
+Docker:
+To build docker image run docker build -t calculatorapp . where a template is calculatorapp
+To enter python prompt through docker run docker run - docker run -it calculatorapp python 
+The commands on python prompt then are as described above. Examples would be:
+>>> calculator.add(2)
+2
+>>> calculator.root(225)
+15.0
+>>> calculator.subtract(6)
+9.0
+>>> calculator.allocate(44)
+44
+>>> calculator.divide(22)
+2.0
