@@ -37,7 +37,7 @@ class Calculator:
 		"""Method to divide default value by an integer (a) where default value is 0 if not set
 		Division: default / a = c
 		>>> calculator.divide(2)
-		0.0
+		4.0
 		"""
 		division = self.default / b
 		self.default = division
@@ -47,7 +47,7 @@ class Calculator:
 		"""Method to multiply an integer (a) with a default value, which is 0 if not set
 		Multiplication: default * a = c
 		>>> calculator.multiply(4)
-		0.0
+		16.0
 		"""
 		multiplication = self.default * b
 		self.default = multiplication
@@ -77,8 +77,8 @@ class Calculator:
 
 	def allocate(self, a):
 		"""Select the default value by passing argument a (example a = 8)
-		>>> calculator.allocate(0)
-		0
+		>>> calculator.allocate(8)
+		8
 		"""
 		self.default = a
 		return a
