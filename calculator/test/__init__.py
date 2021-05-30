@@ -1,4 +1,4 @@
 from calculator.calculator import Calculator
-from calculator.calculator.test import tests
+from test import *
 
 calculator = Calculator()
