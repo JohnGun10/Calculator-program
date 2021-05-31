@@ -96,12 +96,14 @@ To enter python prompt through docker:
 ``` python
 > docker run -it calculatorapp python 
 ```
-Then the commands to run are given in #usage
+The commands to run in it are shown in *Usage*
 
 
 # License
 [(Back to top)](#table-of-contents)
 
+
+[LICENSE](https://github.com/aurimas13/calculator/blob/main/LICENSE)
 <!-- Adding the license to README is a good practice so that people can easily refer to it.
 
 Make sure you have added a LICENSE file in your project folder. **Shortcut:** Click add new file in your root of your repo in GitHub > Set file name to LICENSE > GitHub shows LICENSE templates > Choose the one that best suits your project!
