@@ -1,7 +1,7 @@
 # Calculator
 
-This is a Calculator package that contains 2 Jupyter notebooks, 6 modules (3 of which are not __init__.py), Dockerfile, LICENSE, .gitignore and .dockerignore. 
-The written calculator.py module acts as a normal calculator by adding, subtracting, multiplying, dividing and taking the nth root of a number. This module also contains mehods of reseting memory, allocating memory from what you want to start, setting and getting a memory value. Please refer Installataion and Requiremnts bfore looking into the examples.
+This is a Calculator package that contains 2 Jupyter notebooks, 6 modules ([calculator.py](https://github.com/aurimas13/calculator/blob/main/calculator/calculator.py), [tests.py](https://github.com/aurimas13/calculator/blob/main/test/tests.py), [setup.py](https://github.com/aurimas13/calculator/blob/main/setup.py) and 3 __init__.py files), [Dockerfile](https://github.com/aurimas13/calculator/blob/main/Dockerfile, [LICENSE](https://github.com/aurimas13/calculator/blob/main/LICENSE), [.gitignore](https://github.com/aurimas13/calculator/blob/main/.gitignore) and [.dockerignore](https://github.com/aurimas13/calculator/blob/main/.dockerignore). 
+The written [calculator.py](https://github.com/aurimas13/calculator/blob/main/calculator/calculator.py) module acts as a normal calculator by adding, subtracting, multiplying, dividing and taking the nth root of a number. This module also contains mehods of reseting memory, allocating memory from what you want to start, setting and getting a memory value. Please refer to [(The written [calculator.py](https://github.com/aurimas13/calculator/blob/main/calculator/calculator.py) module acts as a normal calculator by adding, subtracting, multiplying, dividing and taking the nth root of a number. This module also contains mehods of reseting memory, allocating memory from what you want to start, setting and getting a memory value. Please refer to [(Installataion)](#installation) and [(Requirements)](#requirements) before looking into the [(examples)](#usage)Installataion and Requirements before looking into the examples.
 
 # Table of contents
 
@@ -68,7 +68,7 @@ After installation is done the you'll have to instantiate a Calculator class and
 # Tests
 [(Back to top)](#table-of-contents)
 
-First navigate to where calculator.py or tests.py is held.
+First navigate to where [calculator.py](https://github.com/aurimas13/calculator/blob/main/calculator/calculator.py) or [tests.py](https://github.com/aurimas13/calculator/blob/main/test/tests.py) is held.
 
 For DocTest run in terminal or docker this command:
 ``` python
@@ -88,6 +88,8 @@ For typing run:
 # Docker
 [(Back to top)](#table-of-contents)
 
+Setup up of [dockerfile](https://github.com/aurimas13/calculator/blob/main/Dockerfile)
+
 To build docker image on terminal run:
 ``` python
 > docker build -t calculatorapp .
@@ -96,8 +98,7 @@ To enter python prompt through docker:
 ``` python
 > docker run -it calculatorapp python 
 ```
-The commands to run in it are shown in **Usage**
-
+The commands to run in it are shown in [(Usage)](#usage)
 
 # License
 [(Back to top)](#table-of-contents)
