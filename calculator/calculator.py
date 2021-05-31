@@ -8,11 +8,12 @@ class Calculator:
 	
 	def __init__(self, memory: float = 0) -> None:
 		"""Initializes default value to 0 if not set (1st example)
-		>>> calculator.__init__()
 		"""
 		self.__memory = memory
+
 	def get_memory(self) -> float:
 		"""Gets the memory value 
+		>>> calculator = Calculator(4.0)
 		>>> calculator.get_memory()
 		4.0
 		"""
@@ -24,6 +25,7 @@ class Calculator:
 
 	def set_memory(self, new_memory: float) -> None:
 		"""Sets the memory value 
+		>>> calculator = Calculator(4.0)
 		>>> calculator.get_memory()
 		4.0
 		"""
@@ -36,6 +38,7 @@ class Calculator:
 	def add(self, number: float) -> float:
 		"""Method to add an integer (a) to a default value, which is 0 if not set.
 		Addition: default + a = c
+		>>> calculator = Calculator()
 		>>> calculator.add(12.0)
 		12.0
 		"""
@@ -50,6 +53,7 @@ class Calculator:
 	def divide(self, number: float) -> float:
 		"""Method to divide default value by an integer (a) where default value is 0 if not set
 		Division: default / a = c
+		>>> calculator = Calculator(8)
 		>>> calculator.divide(2)
 		4.0
 		"""
@@ -64,6 +68,7 @@ class Calculator:
 	def multiply(self, number: float) -> float:
 		"""Method to multiply an integer (a) with a default value, which is 0 if not set
 		Multiplication: default * a = c
+		>>> calculator = Calculator(4.0)
 		>>> calculator.multiply(4)
 		16.0
 		"""
@@ -78,6 +83,7 @@ class Calculator:
 	def subtract(self, number: float) -> float:
 		"""Method to subtract an integer (a) from a default value, which is 0 if not set
 		Subtraction: default - a = c
+		>>> calculator = Calculator(4)
 		>>> calculator.subtract(2.0)
 		2.0
 		"""
@@ -92,24 +98,24 @@ class Calculator:
 	def root(self, root_of_number: float) -> float:
 		"""Method to take the root of an integer (n)
 		Root: sqrt(n) > 0
+		>>> calculator = Calculator(16)
 		>>> calculator.root(2.0)
 		4.0
 		"""
 		try:
-			# if root_of_number == 0:
-			# 	self.__memory = 0
-			# 	return 0
 			root_of_number = float(root_of_number)
-			root_of_number = self.__memory**(1/float(root_of_number))
+			power_of_root = 1/float(root_of_number)
+			root_of_number = self.__memory**(power_of_root)
 			self.__memory = root_of_number
 			return root_of_number
 		except ValueError: 
 			return "The value should be a float"
 		except ZeroDivisionError: 
-			return "Division by zero not possible. Take a value that is non zero"
+			return "Take a value that is non zero"
 		
 	def allocate(self, number: float) -> float:
 		"""Select the default value by passing argument a (example a = 8)
+		>>> calculator = Calculator()
 		>>> calculator.allocate(8)
 		8
 		"""	
@@ -124,6 +130,7 @@ class Calculator:
 		
 	def reset(self) -> None:
 		"""Method to reset default memory
+		>>> calculator = Calculator()
 		>>> calculator.reset()
 		0
 		>>> calculator.allocate(16)
@@ -132,5 +139,4 @@ class Calculator:
 		self.__memory = 0
 		print(self.__memory)
 
-calculator = Calculator()
 doctest.testmod()
