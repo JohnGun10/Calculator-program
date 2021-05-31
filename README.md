@@ -96,7 +96,7 @@ To enter python prompt through docker:
 ``` python
 > docker run -it calculatorapp python 
 ```
-The commands to run in it are shown in *Usage*
+The commands to run in it are shown in **Usage**
 
 
 # License
