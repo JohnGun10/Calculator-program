@@ -28,6 +28,7 @@ class Calculator:
 		4.0
 		"""
 		try:
+			new_memory == float(new_memory)
 			self.__memory = new_memory
 		except ValueError: 
 			return "The value should be a float"

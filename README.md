@@ -1,43 +1,96 @@
-This is a Calculator package, which acts as a normal calculator by adding, subtracting, multiplying and dividing through representative commands.
-The package contains calculator.py module that has a Calculator class with methods(add, subtract, multiply, divide, allocate, reset) and instantiation of it, tests.py to check all the method validity, dockerfile to install the package to run the module when creating container from the image, intitialization python files (__init__), .dockerignore to ignore several files.
+# Calculator
 
-To run the the calculator.py module you will need to have python 3.8.5 installed on your OS. When you run *python calculator.py* command in terminal at the folder that contains the module (in host or through docker) you'll get this output:
-"TestResults(failed=0, attempted=9)"
+This is a Calculator package that contains 2 Jupyter notebooks, 6 modules (3 of which are not __init__.py), Dockerfile, LICENSE, .gitignore and .dockerignore. 
+The written calculator.py module acts as a normal calculator by adding, subtracting, multiplying, dividing and taking the nth root of a number. This module also contains mehods of reseting memory, allocating memory from what you want to start, setting and getting a memory value. Please refer Installataion and Requiremnts bfore looking into the examples.
 
-In order to run the module and play with it - you'll have to first open python (or python3 or bpython) in terminal. Then import calculator.py: depending on whether you access the package through terminal in your host OS or docker the commands should be either:
+# Table of contents
 
->>> from calculator import * (host OS)
->>> from calculator.calculator import * (Docker) 
+- [Calculator](#Calculator)
+- [Table of contents](#table-of-contents)
+- [Installation](#installation)
+- [Requirements](#requirements)
+- [Usage](#usage)
+- [Tests](#tests)
+- [Docker](#docker)
+- [License](#license)
 
-When you import everything, you then run either one of the commands add(n), subtract(n), multiply(n), divide(n), root(n) (where n and m are floats) or simply allocate(a) (to change default value to a) or reset() (to reset memory) by the following syntax in the python prompt:
->>> calculator.add(2) returns 2 || >>> calculator.reset() returns 0 || >>> calculator.subtract(10) returns -10 || >>> calculator.multiply(-8) returns 80
-|| >>> calculator.allocate(100) return 100 || >>> calculator.divide(10) returns 10.0 || >>> calculator.root(64) returns 8.0
+# Installation
+[(Back to top)](#table-of-contents)
 
-Numbers can vary and that's the basic interface.
+To run the package you'll have to first download and install it by running this command on colab, jupyter notebook, terminal or docker:
+> pip install git+git://github.com/aurimas13/calculator
+When it is downloaded navigate to python shell. When there import the module by:
+>>> from calculator.calculator import Calculator
+or 
+>>> from calculator.calculator import *
 
-If you want to change the default value then you'll have to instantiate a new object in python (or bpython) which can be done like this:
+# Requirements
+[(Back to top)](#table-of-contents)
 
->>> example = Calculator(45)
+Python 3.8.5 is required to run package's modules.
 
-To run operation then you simply write the command (instance.operation). Like this:
+# Usage
+[(Back to top)](#table-of-contents)
 
->>> example.add(2) returns 47 || >>> example.multiply(11) returns 517 || >>> example.subtract(17) returns 500 || >>> example.divide(230000) returns 0.002173913043478261
+After installation is done the you'll have to instantiate a Calculator class and play with it by running methods:
+>>> calc = Calculator()
+>>> calc.add(10)
+10
+>>> calc.subtract(5)
+5
+>>> calc.multiply(50)
+250
+>>> calc.divide(2)
+125.0
+>>> calc.divide(4.5)
+27.77777777777778
+>>> calc.multiply(4.5)
+125.0
+>>> calc.subtract(25)
+100.0
+>>> calc.root(2)
+10.0
+>>> calc.reset()
+0
+>>> calc.allocate(7)
+7
+>>> calc.set_memory(6)
+>>> calc.get_memory()
+6
 
-**Tests:**
+# Tests
+[(Back to top)](#table-of-contents)
 
-Doc Test is included when you run python calculator.py, but you can also run it by *python -m doctest -v calculator.py* which will show that all tests are passed.
-For source files for error we used *pyflakes calculator.py* and *pyflakes tests.py*.
-For typing we ran *mypy calculator.py* and *mypy tests.py*.
-When tests are inititiated given that the package is downloaded on your local machine - there they will generate __pycache__, .mypy_cache and .pytest_cache
+First navigate to where calculator.py or tests.py is held.
 
-**Docker:**
+For DocTest run in terminal or docker this command:
+> python -m doctest -v calculator.py
 
-To build docker image run *docker build -t calculatorapp .* where a template is calculatorapp
-To enter python prompt through docker run - *docker run -it calculatorapp python* 
-Then the commands on python prompt are as described above. Examples would be:
->>> calculator.add(2) returns 2 || >>> calculator.root(225) returns 15.0 || >>> calculator.subtract(6) returns 9.0 || >>> calculator.allocate(44) returns 44 || >>> calculator.divide(22) returns 2.0
+To check source files for error run:
+> pyflakes calculator.py
+> pyflakes tests.py
 
-**pip & Colab**
+For typing run:
+> mypy calculator.py
+> mypy tests.py
 
-Installable through pip by *pip install git+git://github.com/aurimas13/calculator* and also with this command you can load the package on google colab. 
-When you load the package on google colab then you write *from calculator.calculator import ** and you are free to play with the package as the class is already initiated (calculator = Calculator()). So all methods can be run like this calculator.add(value), calculator.subtract(value) and so on where value is an int or a float you input. To change the default value you run calculator.allocate(default) where you input default value. Also you are free to create a new object.
+# Docker
+[(Back to top)](#table-of-contents)
+
+To build docker image run:
+> docker build -t calculatorapp .
+
+To enter python prompt through docker:
+> docker run -it calculatorapp python 
+
+Then the commands to run are given in #usage
+
+
+# License
+[(Back to top)](#table-of-contents)
+
+<!-- Adding the license to README is a good practice so that people can easily refer to it.
+
+Make sure you have added a LICENSE file in your project folder. **Shortcut:** Click add new file in your root of your repo in GitHub > Set file name to LICENSE > GitHub shows LICENSE templates > Choose the one that best suits your project!
+
+I personally add the name of the license and provide a link to it like below. -->
