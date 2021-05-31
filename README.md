@@ -18,11 +18,17 @@ The written calculator.py module acts as a normal calculator by adding, subtract
 [(Back to top)](#table-of-contents)
 
 To run the package you'll have to first download and install it by running this command on colab, jupyter notebook, terminal or docker:
+``` python
 > pip install git+git://github.com/aurimas13/calculator
+```
 When it is downloaded navigate to python shell. When there import the module by:
+``` python
 >>> from calculator.calculator import Calculator
+```
 or 
+``` python
 >>> from calculator.calculator import *
+```
 
 # Requirements
 [(Back to top)](#table-of-contents)
@@ -37,7 +43,6 @@ After installation is done the you'll have to instantiate a Calculator class and
 >>> calc = Calculator()
 >>> calc.add(10)
 10
-```
 >>> calc.subtract(5)
 5
 >>> calc.multiply(50)
@@ -59,32 +64,38 @@ After installation is done the you'll have to instantiate a Calculator class and
 >>> calc.set_memory(6)
 >>> calc.get_memory()
 6
-
+```
 # Tests
 [(Back to top)](#table-of-contents)
 
 First navigate to where calculator.py or tests.py is held.
 
 For DocTest run in terminal or docker this command:
+``` python
 > python -m doctest -v calculator.py
-
+```
 To check source files for error run:
+``` python
 > pyflakes calculator.py
 > pyflakes tests.py
+```
 
 For typing run:
+``` python
 > mypy calculator.py
 > mypy tests.py
-
+``` 
 # Docker
 [(Back to top)](#table-of-contents)
 
-To build docker image run:
+To build docker image on terminal run:
+``` python
 > docker build -t calculatorapp .
-
+```
 To enter python prompt through docker:
+``` python
 > docker run -it calculatorapp python 
-
+```
 Then the commands to run are given in #usage
 
 
