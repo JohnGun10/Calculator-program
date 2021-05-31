@@ -33,6 +33,7 @@ Python 3.8.5 is required to run package's modules.
 [(Back to top)](#table-of-contents)
 
 After installation is done the you'll have to instantiate a Calculator class and play with it by running methods:
+'''python
 >>> calc = Calculator()
 >>> calc.add(10)
 10
@@ -57,7 +58,7 @@ After installation is done the you'll have to instantiate a Calculator class and
 >>> calc.set_memory(6)
 >>> calc.get_memory()
 6
-
+'''
 # Tests
 [(Back to top)](#table-of-contents)
 
