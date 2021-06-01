@@ -1,4 +1,6 @@
 import doctest
+#Importing this module cause in methods I have two different return values, hence to solve mypy errors I am using Any for returning mostly floats or None and if it breaks str
+from typing import Any 
 
 class Calculator:
 
@@ -11,7 +13,7 @@ class Calculator:
 		"""
 		self.__memory = memory
 
-	def get_memory(self) -> float:
+	def get_memory(self) -> Any:
 		"""Gets the memory value 
 		>>> calculator = Calculator(4.0)
 		>>> calculator.get_memory()
@@ -23,7 +25,7 @@ class Calculator:
 		except ValueError: 
 			return "The value should be a float"
 
-	def set_memory(self, new_memory: float) -> None:
+	def set_memory(self, new_memory: float) -> Any:
 		"""Sets the memory value 
 		>>> calculator = Calculator(4.0)
 		>>> calculator.get_memory()
@@ -35,7 +37,7 @@ class Calculator:
 		except ValueError: 
 			return "The value should be a float"
 
-	def add(self, number: float) -> float:
+	def add(self, number: float) -> Any:
 		"""Method to add an integer (a) to a default value, which is 0 if not set.
 		Addition: default + a = c
 		>>> calculator = Calculator()
@@ -50,7 +52,7 @@ class Calculator:
 		except ValueError: 
 			return "The value should be a float"
 		
-	def divide(self, number: float) -> float:
+	def divide(self, number: float) -> Any:
 		"""Method to divide default value by an integer (a) where default value is 0 if not set
 		Division: default / a = c
 		>>> calculator = Calculator(8)
@@ -65,7 +67,7 @@ class Calculator:
 		except ValueError: 
 			return "The value should be a float"
 		
-	def multiply(self, number: float) -> float:
+	def multiply(self, number: float) -> Any:
 		"""Method to multiply an integer (a) with a default value, which is 0 if not set
 		Multiplication: default * a = c
 		>>> calculator = Calculator(4.0)
@@ -80,7 +82,7 @@ class Calculator:
 		except ValueError: 
 			return "The value should be a float"
 		
-	def subtract(self, number: float) -> float:
+	def subtract(self, number: float) -> Any:
 		"""Method to subtract an integer (a) from a default value, which is 0 if not set
 		Subtraction: default - a = c
 		>>> calculator = Calculator(4)
@@ -95,7 +97,7 @@ class Calculator:
 		except ValueError: 
 			return "The value should be a float"
 		
-	def root(self, root_of_number: float) -> float:
+	def root(self, root_of_number: float) -> Any:
 		"""Method to take the root of an integer (n)
 		Root: sqrt(n) > 0
 		>>> calculator = Calculator(16)
@@ -116,7 +118,7 @@ class Calculator:
 		except ZeroDivisionError: 
 			return "Take a value that is non zero"
 		
-	def allocate(self, number: float) -> float:
+	def allocate(self, number: float) -> Any:
 		"""Select the default value by passing argument a (example a = 8)
 		>>> calculator = Calculator()
 		>>> calculator.allocate(8)
