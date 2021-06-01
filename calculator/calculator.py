@@ -1,12 +1,14 @@
 import doctest
-#Importing this module cause in methods I have two different return values, hence to solve mypy errors I am using Any for returning mostly floats or None and if it breaks str
+''' Importing this module cause in methods I have two different return values, hence to solve mypy errors 
+	I am using Any for returning mostly floats or None and if it breaks str'''
 from typing import Any 
+
 
 class Calculator:
 
-	''' A Calculator class does mathematical operations like addition,
+	""" A Calculator class does mathematical operations like addition,
 	subtraction, multiplication, division and taking nth root of a number.
-	'''
+	"""
 	
 	def __init__(self, memory: float = 0) -> None:
 		"""Initializes default value to 0 if not set (1st example)
@@ -110,7 +112,7 @@ class Calculator:
 				return 1
 			else:
 				power_of_root = 1/float(root_of_number)
-				root_of_number = self.__memory**(power_of_root)
+				root_of_number = self.__memory**power_of_root
 				self.__memory = root_of_number
 				return root_of_number
 		except ValueError: 
@@ -132,7 +134,6 @@ class Calculator:
 		except ValueError:
 			return "The value should be a float"
 
-		
 	def reset(self) -> None:
 		"""Method to reset default memory
 		>>> calculator = Calculator()
@@ -143,5 +144,6 @@ class Calculator:
 		"""
 		self.__memory = 0
 		print(self.__memory)
+
 
 doctest.testmod()
