@@ -1,7 +1,7 @@
 # from calculator 
 # import sys
 # sys.path.append('/.../calculator/')
-from calculator.calculator.calculator import Calculator
+from calculator.calculator import Calculator
 import pytest
 
 def test_addition_when_memory_value_equal_to_zero():
@@ -204,16 +204,17 @@ def test_division_when_memory_value_equal_to_negative_one_negative_range():
 		else:
 			assert _calculator.divide(a) == 0.041666666666666664		
 
-def test_root_negative_when_memory_value_equal_to_zero():
-	_calculator = Calculator(0)
-	for a in range(-1, 1):
-		if a == -1:
-			assert _calculator.root(a) == float('inf')
-		elif a == 0:
-			with pytest.raises(ZeroDivisionError):
-				assert _calculator.root(a)
-		else:
-			assert _calculator.root(a) == 0
+# def test_root_negative_when_memory_value_equal_to_zero():
+# 	_calculator = Calculator(0)
+# 	for a in range(-1, 1):
+# 		if a == -1:
+# 			assert _calculator.root(a) == float('inf')
+# 		elif a == 0:
+# 			with pytest.raises(ZeroDivisionError):
+# 				assert _calculator.root(a)
+# 		else:
+# 			assert _calculator.root(a) == 0
+
 # 	for a in range(-1000, 0):
 # 		if a < 0:
 # 			with pytest.raises(ValueError):
