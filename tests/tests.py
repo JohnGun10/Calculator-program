@@ -1,8 +1,8 @@
 # from calculator 
 # import sys
 # sys.path.append('/.../calculator/')
-from calculator.calculator import Calculator
 import pytest
+from calculator.calculator import Calculator
 
 
 def test_addition_when_memory_value_equal_to_zero():
