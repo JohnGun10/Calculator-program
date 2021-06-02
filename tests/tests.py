@@ -31,7 +31,7 @@ def test_addition_when_memory_value_equal_to_negative_one_various_range():
 	_calculator = Calculator(-73)
 
 	additives = [0, -77, 185]
-	products = [-73, -150, 35]
+	products = [-73, -150.5, 34.5]
 	for index, additive in enumerate(additives):
 		assert _calculator.add(additive) == products[index]
 
@@ -50,8 +50,8 @@ def test_subtraction_when_memory_value_equal_to_negative_one_positive_range():
 	"""test of subtract method to see how it handles when you pass -57, 0, 75 and class is initialized to negative one"""
 	_calculator = Calculator(-1)
 	
-	subtractives = [-57, 0, 75]
-	products = [56, 56, -19]
+	subtractives = [-57, 0, 74.55]
+	products = [56, 56, -18.45]
 	for index, subtractive in enumerate(subtractives):
 		assert _calculator.subtract(subtractive) == products[index]
 
@@ -186,7 +186,7 @@ def test_root_when_memory_value_equal_to_zero():
 
 
 def test_root_when_memory_value_equal_to_eight():
-	"""test of root method to see how it handles when the class is initialized to eight"""
+	"""test of root method to see how it handles when the class is initialized to eight and root is 3"""
 	_calculator = Calculator(8)
 	assert _calculator.root(3) == 2
 

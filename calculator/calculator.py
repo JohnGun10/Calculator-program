@@ -1,7 +1,7 @@
 import doctest
 ''' Importing this module cause in methods I have two different return values, hence to solve mypy errors 
 	I am using Any for returning mostly floats or None and if it breaks str'''
-from typing import Union
+from typing import Any, Union
 
 
 class Calculator:
@@ -27,7 +27,7 @@ class Calculator:
 		except ValueError: 
 			return "The value should be a float"
 
-	def set_memory(self, new_memory: float) -> Union[float, str]:
+	def set_memory(self, new_memory: float) -> Any:
 		"""Sets the memory value 
 		>>> calculator = Calculator(4.0)
 		>>> calculator.get_memory()
@@ -36,7 +36,6 @@ class Calculator:
 		try:
 			new_memory == float(new_memory)
 			self.__memory = new_memory
-			return new_memory
 		except ValueError: 
 			return "The value should be a float"
 
