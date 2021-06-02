@@ -30,8 +30,8 @@ def test_addition_when_memory_value_equal_to_negative_one_various_range():
 		is initialized to -73"""
 	_calculator = Calculator(-73)
 
-	additives = [0, -77, 185]
-	products = [-73, -150.5, 34.5]
+	additives = [0, -77, 184.5]
+	products = [-73, -150, 34.5]
 	for index, additive in enumerate(additives):
 		assert _calculator.add(additive) == products[index]
 
@@ -51,7 +51,7 @@ def test_subtraction_when_memory_value_equal_to_negative_one_positive_range():
 	_calculator = Calculator(-1)
 	
 	subtractives = [-57, 0, 74.55]
-	products = [56, 56, -18.45]
+	products = [56, 56, -18.55]
 	for index, subtractive in enumerate(subtractives):
 		assert _calculator.subtract(subtractive) == products[index]
 
@@ -118,13 +118,12 @@ def test_multiplication_when_memory_value_equal_to_one_negative_range():
 
 
 def test_division_when_memory_value_equal_to_zero():
-	"""test of divide method to see how it handles when you pass near zero values
+	"""test of divide method to see how it handles when you pass 1, -1 and 0 (error handling is done in calculator.py for this case) values
 	and class is initialized to zero"""
 	_calculator = Calculator()
 	for a in range(-1, 1):
 		if a == 0:
-			with pytest.raises(ZeroDivisionError):
-				_calculator.divide(a)
+			assert _calculator.divide(a) == "You cannot divide by zero. Choose another number"
 		else:
 			assert _calculator.divide(a) == 0			
 
@@ -144,7 +143,7 @@ def test_division_when_memory_value_equal_to_one_negative_range():
 	_calculator = Calculator(1)
 
 	divisors = [-2, -3, -4]
-	products = [-0.5, 0.16666666666666666, -0.041666666666666664]
+	products = [-0.5, 0.1667, -0.0417]
 	for index, divisor in enumerate(divisors):
 		assert _calculator.divide(divisor) == products[index]
 
@@ -170,20 +169,34 @@ def test_division_when_memory_value_equal_to_negative_one_negative_range():
 		assert _calculator.divide(divisor) == products[index]		
 
 
-def test_root_when_memory_value_equal_to_zero():
-	"""test of root method to see how it handles when you pass zero to negative one and class is initialized to zero.
-	This checks for interesting cases"""
-	_calculator = Calculator(0)
-	for a in range(-1, 1):
-		if a == 0:
-			with pytest.raises(AssertionError):
-				assert _calculator.root(a) == 1
-		elif a == -1:
-			assert _calculator.root(a) == float("inf") or float("-inf")
-		else:
-			with pytest.raises(AssertionError):
-				assert _calculator.root(a)
+def test_root_when_memory_value_equal_to_negative_one_various_range():
+	"""test of root method to see how it handles various roots complex numbers when you pass positive numbers and
+	class is initialized to negative one"""
+	_calculator = Calculator(9)
 
+	roots = [2, 0, -2]
+	products = [3, 1, 1.0]
+	for index, root in enumerate(roots):
+		assert _calculator.root(root) == products[index]	
+
+
+def test_root_when_memory_value_equal_to_one_when_root_is_zero():
+	"""test of root method to see how it handles when you pass zero root to negative one. This checks an interesting case"""
+	_calculator = Calculator(1)
+	assert _calculator.root(0) == 1
+
+
+def test_root_when_memory_value_equal_to_negative_one_when_root_is_zero():
+	"""test of root method to see how it handles when you pass zero root to negative one. This checks an interesting case"""
+	_calculator = Calculator(-1)
+	assert _calculator.root(0) == -1
+
+
+def test_root_when_memory_value_equal_to_zero_when_root_is_negative_one():
+	"""test of root method to see how it handles when you pass zero root to negative one. This checks an interesting case"""
+	_calculator = Calculator(0)
+	assert _calculator.root(-1) == float("inf") or float("-inf")
+	
 
 def test_root_when_memory_value_equal_to_eight():
 	"""test of root method to see how it handles when the class is initialized to eight and root is 3"""
@@ -199,27 +212,12 @@ def test_root_when_memory_value_equal_to_one_negative_range():
 
 
 def test_root_when_memory_value_equal_to_negative_one_negative_range():
-	"""test of root method to see how it handles complex numbers when you pass negative numbers
-	and class is initialized to negative one"""
+	"""test of root method to see how it handles negative roots when class is initialized to negative one"""
 	_calculator = Calculator(-1)
-	
-	roots = [-2, -3, -4]
-	products = [6.123233995736766e-17-1j, 0.8660254037844387+0.49999999999999994j, 0.9914448613738104-0.13052619222005157j]
-	for index, root in enumerate(roots):
-		assert _calculator.root(root) == products[index]
-		
+	for a in range(-100, 0):
+		assert _calculator.root(a) == -1
 
-def test_root_when_memory_value_equal_to_negative_one_positive_range():
-	"""test of root method to see how it handles complex numbers when you pass positive numbers and
-	class is initialized to negative one"""
-	_calculator = Calculator(-1)
-	for a in range(2, 4):
-		if a == 2:
-			assert _calculator.root(a) == (6.123233995736766e-17+1j)
-		elif a == 3:
-			assert _calculator.root(a) == (0.8660254037844387+0.49999999999999994j)
-		else:
-			assert _calculator.root(a) == (0.9914448613738104+0.13052619222005157j)
+
 
 
 

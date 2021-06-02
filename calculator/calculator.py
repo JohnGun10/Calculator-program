@@ -1,7 +1,8 @@
-import doctest
 ''' Importing this module cause in methods I have two different return values, hence to solve mypy errors 
 	I am using Any for returning mostly floats or None and if it breaks str'''
 from typing import Any, Union
+# import doctest
+# import math
 
 
 class Calculator:
@@ -33,9 +34,12 @@ class Calculator:
 		>>> calculator.get_memory()
 		4.0
 		"""
-		try:
+		try: 
+			"Checking if a vlaue is a float"
 			new_memory == float(new_memory)
+			"Assignment"
 			self.__memory = new_memory
+
 		except ValueError: 
 			return "The value should be a float"
 
@@ -47,10 +51,13 @@ class Calculator:
 		12.0
 		"""
 		try:
+			"Checking if value is a flaot"
 			number == float(number)
+			"Rounding to two decimals and assignment"
 			addition = self.__memory + number
+			addition = round(addition, 2)
 			self.__memory = addition
-			return addition
+			return self.__memory
 		except ValueError: 
 			return "The value should be a float"
 		
@@ -62,12 +69,17 @@ class Calculator:
 		4.0
 		"""
 		try:
+			"Checking if value is a flaot"
 			number == float(number)
+			"Rounding to two decimals and assignment"
 			division = self.__memory / number
+			division = round(division, 4)
 			self.__memory = division
-			return division
+			return self.__memory
 		except ValueError: 
 			return "The value should be a float"
+		except ZeroDivisionError:
+			return "You cannot divide by zero. Choose another number"
 		
 	def multiply(self, number: float) -> Union[float, str]:
 		"""Method to multiply an integer (a) with a default value, which is 0 if not set
@@ -77,10 +89,13 @@ class Calculator:
 		16.0
 		"""
 		try:
+			"Checking if value is a flaot"
 			number == float(number)
+			"Rounding to two decimals and assignment"
 			multiplication = self.__memory * number
+			multiplication = round(multiplication, 4)
 			self.__memory = multiplication
-			return multiplication
+			return self.__memory
 		except ValueError: 
 			return "The value should be a float"
 		
@@ -92,39 +107,63 @@ class Calculator:
 		2.0
 		"""
 		try:
+			"Checking if value is a flaot"
 			number == float(number)
+			"Rounding to two decimals and assignment"
 			subtraction = self.__memory - number
+			subtraction = round(subtraction, 2)
 			self.__memory = subtraction
-			return subtraction
+			return self.__memory
 		except ValueError: 
 			return "The value should be a float"
 		
 	def root(self, root_of_number: float) -> Union[float, str]:
-		"""Method to take the root of an integer (n)
+		"""Method to take the root (n) of an integer. This method prints only real roots.
+		Imaginary roots are not printed.
 		Root: sqrt(n) > 0
 		>>> calculator = Calculator(16)
 		>>> calculator.root(2.0)
 		4.0
 		"""
 		try:
+			"Checking if value is a flaot"
 			root_of_number = float(root_of_number)
-			power_of_root = 1/float(root_of_number)
-			root_of_number = self.__memory**power_of_root
-			self.__memory = root_of_number
-			return root_of_number
+			if self.__memory >= 0:
+				"Assignents if a value is positive"
+				if root_of_number == 0:
+					self.__memory = number_after_root = 1.0
+					return self.__memory
+				else:
+					power_of_root = 1.0/root_of_number
+					number_after_root = self.__memory**power_of_root
+					self.__memory = number_after_root
+					return self.__memory
+			else:
+				"Because roots of a negative numbers give real and imaginary parts, this part gives only real root of a negative number"
+				if root_of_number == 0:
+					self.__memory = number_after_root = -1.0
+					return self.__memory
+				else:
+					power_of_root = 1.0/root_of_number
+					number_after_root = -abs(self.__memory)**power_of_root
+					self.__memory = number_after_root
+					return self.__memory
 		except ValueError: 
 			return "The value should be a float"
 		except ZeroDivisionError: 
 			return "Take a value that is non zero"
+
 		
 	def allocate(self, number: float) -> Union[float, str]:
-		"""Select the default value by passing argument a (example a = 8)
+		"""Select the mmory value by passing argument a (example a = 8)
 		>>> calculator = Calculator()
 		>>> calculator.allocate(8)
 		8
 		"""	
 		try:
+			"Checking if value is a flaot"
 			number == float(number)
+			"Assignments"
 			self.__memory == float(self.__memory)
 			self.__memory = number
 			return number
@@ -132,7 +171,7 @@ class Calculator:
 			return "The value should be a float"
 
 	def reset(self) -> None:
-		"""Method to reset default memory
+		"""Method to reset memory value
 		>>> calculator = Calculator()
 		>>> calculator.reset()
 		0
@@ -142,5 +181,3 @@ class Calculator:
 		self.__memory = 0
 		print(self.__memory)
 
-
-doctest.testmod()
