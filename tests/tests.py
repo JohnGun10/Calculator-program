@@ -66,12 +66,12 @@ def test_multiplication_when_memory_value_equal_to_zero():
 
 
 def test_multiplication_when_memory_value_equal_to_negative_one_positive_range():
-    """test of multiply method to see how it handles when you pass positive numbers and class is initialized to negative one"""
-    _calculator = Calculator(-1)
-    multipliers = [2, 3.4, 4]
-    products = [-2, -6.8, -27.2]
-    for index, multiplier in enumerate(multipliers):
-        assert _calculator.multiply(multiplier) == products[index]
+	"""test of multiply method to see how it handles when you pass positive numbers and class is initialized to negative one"""
+	_calculator = Calculator(-1)
+	multipliers = [2, 3.4, 4]
+	products = [-2, -6.8, -27.2]
+	for index, multiplier in enumerate(multipliers):
+		assert _calculator.multiply(multiplier) == products[index]
 
 
 def test_multiplication_when_memory_value_equal_to_negative_eight_various_inputs():

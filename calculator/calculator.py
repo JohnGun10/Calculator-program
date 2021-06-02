@@ -1,5 +1,5 @@
-''' Importing this module cause in methods I have two different return values, hence to solve some mypy errors 
-	I am using Union for returning floats or None and if it breaks str'''
+""" Importing this module cause in methods I have two different return values, hence to solve some mypy errors
+	I am using Union for returning floats or None and if it breaks str"""
 from typing import Union
 # import doctest
 import math
@@ -22,11 +22,7 @@ class Calculator:
 		>>> calculator.get_memory()
 		4.0
 		"""
-		try:
-			self.__memory == float(self.__memory)
-			return self.__memory
-		except ValueError: 
-			return "The value should be a float"
+		return self.__memory
 
 	def set_memory(self, new_memory: float) -> Union[float, str]:
 		"""Sets the memory value 
@@ -35,15 +31,15 @@ class Calculator:
 		4.0
 		"""
 		try: 
-			"Checking if a value is a float"
 			new_memory == float(new_memory)
 			self.__memory = new_memory
 			return self.__memory
-		except ValueError: 
+		except ValueError:
+			return "The value should be a float"
+		except TypeError:
 			return "The value should be a float"
 
-
-	def add(self, number: float) ->  Union[float, str]:
+	def add(self, number: float) -> Union[float, str]:
 		"""Method to add an integer (a) to a default value, which is 0 if not set.
 		Addition: default + a = c
 		>>> calculator = Calculator()
@@ -51,14 +47,14 @@ class Calculator:
 		12.0
 		"""
 		try:
-			"Checking if value is a flaot"
-			number == float(number)
 			"Rounding to two decimals and assignment"
 			addition = self.__memory + number
 			addition = round(addition, 2)
 			self.__memory = addition
 			return self.__memory
 		except ValueError: 
+			return "The value should be a float"
+		except TypeError:
 			return "The value should be a float"
 		
 	def divide(self, number: float) -> Union[float, str]:
@@ -69,14 +65,14 @@ class Calculator:
 		4.0
 		"""
 		try:
-			"Checking if value is a flaot"
-			number == float(number)
 			"Rounding to two decimals and assignment"
 			division = self.__memory / number
 			division = round(division, 4)
 			self.__memory = division
 			return self.__memory
 		except ValueError: 
+			return "The value should be a float"
+		except TypeError:
 			return "The value should be a float"
 		except ZeroDivisionError:
 			print("You cannot divide by zero. Choose another number!\nError: \n")
@@ -90,14 +86,14 @@ class Calculator:
 		16.0
 		"""
 		try:
-			"Checking if value is a flaot"
-			number == float(number)
 			"Rounding to two decimals and assignment"
 			multiplication = self.__memory * number
 			multiplication = round(multiplication, 4)
 			self.__memory = multiplication
 			return self.__memory
 		except ValueError: 
+			return "The value should be a float"
+		except TypeError:
 			return "The value should be a float"
 		
 	def subtract(self, number: float) -> Union[float, str]:
@@ -108,14 +104,14 @@ class Calculator:
 		2.0
 		"""
 		try:
-			"Checking if value is a flaot"
-			number == float(number)
 			"Rounding to two decimals and assignment"
 			subtraction = self.__memory - number
 			subtraction = round(subtraction, 2)
 			self.__memory = subtraction
 			return self.__memory
 		except ValueError: 
+			return "The value should be a float"
+		except TypeError:
 			return "The value should be a float"
 
 		
@@ -128,17 +124,16 @@ class Calculator:
 		4.0
 		"""
 		try:
-			"Checking if value is a flaot"
-			root_of_number = float(root_of_number)
 			if root_of_number == 0:
-				raise ValueError("Oth root is undefined")
+				raise ValueError("Oth root is undefined. Please choose a root (n) to be n < 0 or n > 0")
 			else:
 				pass
 			if self.__memory > 0:
 				number_after_root = self.__memory**(1.0/root_of_number)
 				self.__memory = number_after_root
 			elif self.__memory < 0:
-				"Because roots of a negative numbers give real and imaginary parts, this part gives only real root of a negative number"
+				"Because roots of a negative numbers give real and imaginary parts, this part " \
+				"gives only real root of a negative number"
 				number_after_root = -abs(self.__memory)**(1.0/root_of_number)
 				self.__memory = number_after_root
 			else:
@@ -148,9 +143,11 @@ class Calculator:
 					self.__memory = math.inf
 			return self.__memory
 		except ValueError as err: 
-			return 'This is the error you get: {}'.format(err)
+			return 'The error is: {}'.format(err)
 		except ZeroDivisionError: 
 			return "Take a value that is non zero"
+		except TypeError:
+			return "The value should be a float"
 		
 	def allocate(self, number: float) -> Union[float, str]:
 		"""Select the mmory value by passing argument a (example a = 8)
@@ -159,13 +156,12 @@ class Calculator:
 		8
 		"""	
 		try:
-			"Checking if value is a flaot"
-			number == float(number)
 			"Assignments"
-			self.__memory == float(self.__memory)
 			self.__memory = number
 			return self.__memory
 		except ValueError:
+			return "The value should be a float"
+		except TypeError:
 			return "The value should be a float"
 
 
@@ -179,4 +175,3 @@ class Calculator:
 		"""
 		self.__memory = 0
 		print(self.__memory)
-
