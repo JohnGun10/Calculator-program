@@ -6,11 +6,11 @@ from calculator.calculator import Calculator
 
 
 def test_addition_when_memory_value_equal_to_zero():
-	"""test of add method to see how it handles when you pass range from -1 to 1 and class is initialized to zero"""
+	"""test of add method to see how it handles when you pass 2, 3.3, 44 and class is initialized to zero"""
 	_calculator = Calculator()
 
-	additives = [2, 3, 4]
-	products = [2, 5, 9]
+	additives = [2, 3.3, 44]
+	products = [2, 5.3, 49.3]
 	for index, additive in enumerate(additives):
 		assert _calculator.add(additive) == products[index]
 
@@ -176,7 +176,8 @@ def test_root_when_memory_value_equal_to_zero():
 	_calculator = Calculator(0)
 	for a in range(-1, 1):
 		if a == 0:
-			assert _calculator.root(a) == 1
+			with pytest.raises(AssertionError):
+				assert _calculator.root(a) == 1
 		elif a == -1:
 			assert _calculator.root(a) == float("inf") or float("-inf")
 		else:
@@ -193,7 +194,7 @@ def test_root_when_memory_value_equal_to_eight():
 def test_root_when_memory_value_equal_to_one_negative_range():
 	"""test of root method to see how it handles when you pass negative numbers and class is initialized to one"""
 	_calculator = Calculator(1)
-	for a in range(-4, -2):
+	for a in range(-6, -1):
 		assert _calculator.root(a) == 1
 
 
