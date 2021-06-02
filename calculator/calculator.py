@@ -1,8 +1,8 @@
-''' Importing this module cause in methods I have two different return values, hence to solve mypy errors 
-	I am using Any for returning mostly floats or None and if it breaks str'''
-from typing import Any, Union
+''' Importing this module cause in methods I have two different return values, hence to solve some mypy errors 
+	I am using Union for returning floats or None and if it breaks str'''
+from typing import Union
 # import doctest
-# import math
+import math
 
 
 class Calculator:
@@ -28,20 +28,20 @@ class Calculator:
 		except ValueError: 
 			return "The value should be a float"
 
-	def set_memory(self, new_memory: float) -> Any:
+	def set_memory(self, new_memory: float) -> Union[float, str]:
 		"""Sets the memory value 
 		>>> calculator = Calculator(4.0)
 		>>> calculator.get_memory()
 		4.0
 		"""
 		try: 
-			"Checking if a vlaue is a float"
+			"Checking if a value is a float"
 			new_memory == float(new_memory)
-			"Assignment"
 			self.__memory = new_memory
-
+			return self.__memory
 		except ValueError: 
 			return "The value should be a float"
+
 
 	def add(self, number: float) ->  Union[float, str]:
 		"""Method to add an integer (a) to a default value, which is 0 if not set.
@@ -61,7 +61,7 @@ class Calculator:
 		except ValueError: 
 			return "The value should be a float"
 		
-	def divide(self, number: float) ->  Union[float, str]:
+	def divide(self, number: float) -> Union[float, str]:
 		"""Method to divide default value by an integer (a) where default value is 0 if not set
 		Division: default / a = c
 		>>> calculator = Calculator(8)
@@ -79,7 +79,8 @@ class Calculator:
 		except ValueError: 
 			return "The value should be a float"
 		except ZeroDivisionError:
-			return "You cannot divide by zero. Choose another number"
+			print("You cannot divide by zero. Choose another number!\nError: \n")
+			raise 
 		
 	def multiply(self, number: float) -> Union[float, str]:
 		"""Method to multiply an integer (a) with a default value, which is 0 if not set
@@ -116,6 +117,7 @@ class Calculator:
 			return self.__memory
 		except ValueError: 
 			return "The value should be a float"
+
 		
 	def root(self, root_of_number: float) -> Union[float, str]:
 		"""Method to take the root (n) of an integer. This method prints only real roots.
@@ -128,31 +130,27 @@ class Calculator:
 		try:
 			"Checking if value is a flaot"
 			root_of_number = float(root_of_number)
-			if self.__memory >= 0:
-				"Assignents if a value is positive"
-				if root_of_number == 0:
-					self.__memory = number_after_root = 1.0
-					return self.__memory
-				else:
-					power_of_root = 1.0/root_of_number
-					number_after_root = self.__memory**power_of_root
-					self.__memory = number_after_root
-					return self.__memory
+			if root_of_number == 0:
+				raise ValueError("Oth root is undefined")
 			else:
+				pass
+			if self.__memory > 0:
+				number_after_root = self.__memory**(1.0/root_of_number)
+				self.__memory = number_after_root
+			elif self.__memory < 0:
 				"Because roots of a negative numbers give real and imaginary parts, this part gives only real root of a negative number"
-				if root_of_number == 0:
-					self.__memory = number_after_root = -1.0
-					return self.__memory
+				number_after_root = -abs(self.__memory)**(1.0/root_of_number)
+				self.__memory = number_after_root
+			else:
+				if root_of_number > 0:
+					self.__memory = 0
 				else:
-					power_of_root = 1.0/root_of_number
-					number_after_root = -abs(self.__memory)**power_of_root
-					self.__memory = number_after_root
-					return self.__memory
-		except ValueError: 
-			return "The value should be a float"
+					self.__memory = math.inf
+			return self.__memory
+		except ValueError as err: 
+			return 'This is the error you get: {}'.format(err)
 		except ZeroDivisionError: 
 			return "Take a value that is non zero"
-
 		
 	def allocate(self, number: float) -> Union[float, str]:
 		"""Select the mmory value by passing argument a (example a = 8)
@@ -166,9 +164,10 @@ class Calculator:
 			"Assignments"
 			self.__memory == float(self.__memory)
 			self.__memory = number
-			return number
+			return self.__memory
 		except ValueError:
 			return "The value should be a float"
+
 
 	def reset(self) -> None:
 		"""Method to reset memory value
