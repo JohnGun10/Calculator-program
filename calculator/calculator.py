@@ -109,13 +109,10 @@ class Calculator:
 		"""
 		try:
 			root_of_number = float(root_of_number)
-			if root_of_number == 0:
-				return 1
-			else:
-				power_of_root = 1/float(root_of_number)
-				root_of_number = self.__memory**power_of_root
-				self.__memory = root_of_number
-				return root_of_number
+			power_of_root = 1/float(root_of_number)
+			root_of_number = self.__memory**power_of_root
+			self.__memory = root_of_number
+			return root_of_number
 		except ValueError: 
 			return "The value should be a float"
 		except ZeroDivisionError: 
