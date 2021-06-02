@@ -17,7 +17,7 @@ The written [calculator.py](https://github.com/aurimas13/calculator/blob/main/ca
 # Installation
 [(Back to top)](#table-of-contents)
 
-To run the package you'll have to first download and install it by running this command on colab, jupyter notebook, terminal or docker:
+To run the package you'll have to first download and install it by running this command on colab, jupyter notebook, terminal:
 ``` python
 > pip install git+git://github.com/aurimas13/calculator
 ```
