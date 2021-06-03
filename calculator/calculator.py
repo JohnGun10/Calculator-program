@@ -11,7 +11,7 @@ class Calculator:
 	"""
 	
 	def __init__(self, memory: float = 0) -> None:
-		"""Initializes default value to 0 if not set (1st example)
+		"""Initializes default value to 0 if not set)
 		"""
 		self.__memory = memory
 
@@ -39,8 +39,9 @@ class Calculator:
 			return "The value should be a float"
 
 	def add(self, number: float) -> Union[float, str]:
-		"""Method to add an integer (a) to a default value, which is 0 if not set.
-		Addition: default + a = c
+		"""Method to add a float (number) to a default value, which is 0 
+		if not set when initialized or whatever when initialized.
+		Addition: self.memory + number = c
 		>>> calculator = Calculator()
 		>>> calculator.add(12.0)
 		12.0
@@ -57,14 +58,14 @@ class Calculator:
 			return "The value should be a float"
 		
 	def divide(self, number: float) -> Union[float, str]:
-		"""Method to divide default value by an integer (a) where default value is 0 if not set
-		Division: default / a = c
+		"""Method to divide default value by a float (number) where default value is 0 if not set
+		Division: self.memory / number = c
 		>>> calculator = Calculator(8)
 		>>> calculator.divide(2)
 		4.0
 		"""
 		try:
-			"Rounding to two decimals and assignment"
+			"Rounding to four decimals and assignment"
 			division = self.__memory / number
 			division = round(division, 4)
 			self.__memory = division
@@ -78,14 +79,15 @@ class Calculator:
 			raise 
 		
 	def multiply(self, number: float) -> Union[float, str]:
-		"""Method to multiply an integer (a) with a default value, which is 0 if not set
-		Multiplication: default * a = c
+		"""Method to multiply a float (number) with a self.memory value, 
+		which is 0 if not set.
+		Multiplication: self.memory * number = c
 		>>> calculator = Calculator(4.0)
 		>>> calculator.multiply(4)
 		16.0
 		"""
 		try:
-			"Rounding to two decimals and assignment"
+			"Rounding to four decimals and assignment"
 			multiplication = self.__memory * number
 			multiplication = round(multiplication, 4)
 			self.__memory = multiplication
@@ -96,14 +98,14 @@ class Calculator:
 			return "The value should be a float"
 		
 	def subtract(self, number: float) -> Union[float, str]:
-		"""Method to subtract an integer (a) from a default value, which is 0 if not set
-		Subtraction: default - a = c
+		"""Method to subtract a float (number) from a default value, which is 0 if not set
+		Subtraction: self.memory - number = c
 		>>> calculator = Calculator(4)
 		>>> calculator.subtract(2.0)
 		2.0
 		"""
 		try:
-			"Rounding to two decimals and assignment"
+			"Rounding to four decimals and assignment"
 			subtraction = self.__memory - number
 			subtraction = round(subtraction, 4)
 			self.__memory = subtraction
@@ -113,11 +115,10 @@ class Calculator:
 		except TypeError:
 			return "The value should be a float"
 
-		
 	def root(self, root_of_number: float) -> Union[float, str]:
-		"""Method to take the root (n) of an integer. This method prints only real roots.
+		"""Method to take the root (n) of a float. 
+		This method prints only real roots.
 		Imaginary roots are not printed.
-		Root: sqrt(n) > 0
 		>>> calculator = Calculator(16)
 		>>> calculator.root(2.0)
 		4.0
@@ -149,7 +150,7 @@ class Calculator:
 			return "The value should be a float"
 		
 	def allocate(self, number: float) -> Union[float, str]:
-		"""Select the mmory value by passing argument a (example a = 8)
+		"""Select the mmory value by passing argument number (example number = 8)
 		>>> calculator = Calculator()
 		>>> calculator.allocate(8)
 		8
@@ -162,7 +163,6 @@ class Calculator:
 			return "The value should be a float"
 		except TypeError:
 			return "The value should be a float"
-
 
 	def reset(self) -> None:
 		"""Method to reset memory value
