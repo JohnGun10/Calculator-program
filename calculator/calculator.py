@@ -1,7 +1,7 @@
 import math
-from typing import Union
+from typing import Any, Union
 """ Importing typing module cause in methods I have two different return values, hence to solve some mypy errors
-	I am using Union for returning floats or None and if it breaks str"""
+	I am using Union and Any for returning floats or None and if it breaks str"""
 
 
 class Calculator:
@@ -23,7 +23,7 @@ class Calculator:
 		"""
 		return self.__memory
 
-	def set_memory(self, new_memory: float) -> Union[float, str]:
+	def set_memory(self, new_memory: float) -> Any:
 		"""Sets the memory value 
 		>>> calculator = Calculator(4.0)
 		>>> calculator.get_memory()
@@ -32,7 +32,6 @@ class Calculator:
 		try: 
 			new_memory == float(new_memory)
 			self.__memory = new_memory
-			return self.__memory
 		except ValueError:
 			return "The value should be a float"
 		except TypeError:
