@@ -70,7 +70,7 @@ After installation is done the you'll have to instantiate a Calculator class and
 
 First navigate to where [calculator.py](https://github.com/aurimas13/calculator/blob/main/calculator/calculator.py) or [tests.py](https://github.com/aurimas13/calculator/blob/main/test/tests.py) is held.
 
-For DocTest run in terminal or docker this command:
+For DocTest run this command:
 ``` python
 > python -m doctest -v calculator.py
 ```
