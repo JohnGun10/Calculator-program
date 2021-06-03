@@ -22,7 +22,7 @@ def test_addition_when_memory_value_equal_to_one_various_range():
 
 
 def test_addition_when_memory_value_equal_to_negative_one_various_range():
-	"""test of add method to see how it handles when you pass -77, 0, 185 and class is initialized to -73"""
+	"""test of add method to see how it handles when you pass -77, 0, 184.55 and class is initialized to -73"""
 	_calculator = Calculator(-73)
 	additives = [0, -77, 184.55]
 	products = [-73, -150, 34.55]
@@ -41,7 +41,7 @@ def test_subtraction_when_memory_value_equal_to_zero():
 
 
 def test_subtraction_when_memory_value_equal_to_negative_one_positive_range():
-	"""test of subtract method to see how it handles when you pass -57, 0, 75 and class is initialized to negative one"""
+	"""test of subtract method to see how it handles when you pass -57, 0, 74.55 and class is initialized to negative one"""
 	_calculator = Calculator(-1)
 	subtractives = [-57, 0, 74.55]
 	products = [56, 56, -18.55]
