@@ -33,7 +33,7 @@ or
 # Requirements
 [(Back to top)](#table-of-contents)
 
-Python 3.8.5 is required to run package's modules.
+Python 3.8.5 is required to run package's modules. Imports of pytest, math and typing are also needed.
 
 # Usage
 [(Back to top)](#table-of-contents)
@@ -70,7 +70,7 @@ After installation is done the you'll have to instantiate a Calculator class and
 
 First navigate to where [calculator.py](https://github.com/aurimas13/calculator/blob/main/calculator/calculator.py) or [tests.py](https://github.com/aurimas13/calculator/blob/main/test/tests.py) is held.
 
-For DocTest run this command:
+For DocTest run this command in terminal:
 ``` python
 > python -m doctest -v calculator.py
 ```
@@ -105,8 +105,3 @@ The commands to run in it are shown in [(Usage)](#usage)
 
 
 [LICENSE](https://github.com/aurimas13/calculator/blob/main/LICENSE)
-<!-- Adding the license to README is a good practice so that people can easily refer to it.
-
-Make sure you have added a LICENSE file in your project folder. **Shortcut:** Click add new file in your root of your repo in GitHub > Set file name to LICENSE > GitHub shows LICENSE templates > Choose the one that best suits your project!
-
-I personally add the name of the license and provide a link to it like below. -->
