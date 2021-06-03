@@ -4,7 +4,7 @@ from calculator.calculator import Calculator
 
 
 def test_addition_when_memory_value_equal_to_zero():
-	"""test of add method to see how it handles when you pass 2, 3.3, 44 and class is initialized to zero"""
+	"""test of add method to see how it handles when you pass 2, 3.3222, 44 and class is initialized to zero"""
 	_calculator = Calculator()
 	additives = [2, 3.3222, 44]
 	products = [2, 5.3222, 49.3222]
