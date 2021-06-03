@@ -6,8 +6,8 @@ from calculator.calculator import Calculator
 def test_addition_when_memory_value_equal_to_zero():
 	"""test of add method to see how it handles when you pass 2, 3.3, 44 and class is initialized to zero"""
 	_calculator = Calculator()
-	additives = [2, 3.3, 44]
-	products = [2, 5.3, 49.3]
+	additives = [2, 3.3222, 44]
+	products = [2, 5.3222, 49.3222]
 	for index, additive in enumerate(additives):
 		assert _calculator.add(additive) == products[index]
 
@@ -24,8 +24,8 @@ def test_addition_when_memory_value_equal_to_one_various_range():
 def test_addition_when_memory_value_equal_to_negative_one_various_range():
 	"""test of add method to see how it handles when you pass -77, 0, 185 and class is initialized to -73"""
 	_calculator = Calculator(-73)
-	additives = [0, -77, 184.5]
-	products = [-73, -150, 34.5]
+	additives = [0, -77, 184.55]
+	products = [-73, -150, 34.55]
 	for index, additive in enumerate(additives):
 		assert _calculator.add(additive) == products[index]
 

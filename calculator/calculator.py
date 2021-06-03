@@ -49,7 +49,7 @@ class Calculator:
 		try:
 			"Rounding to two decimals and assignment"
 			addition = self.__memory + number
-			addition = round(addition, 2)
+			addition = round(addition, 4)
 			self.__memory = addition
 			return self.__memory
 		except ValueError: 
@@ -106,7 +106,7 @@ class Calculator:
 		try:
 			"Rounding to two decimals and assignment"
 			subtraction = self.__memory - number
-			subtraction = round(subtraction, 2)
+			subtraction = round(subtraction, 4)
 			self.__memory = subtraction
 			return self.__memory
 		except ValueError: 
