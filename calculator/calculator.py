@@ -47,7 +47,7 @@ class Calculator:
 		12.0
 		"""
 		try:
-			"Rounding to two decimals and assignment"
+			"Rounding to four decimals and assignment"
 			addition = self.__memory + number
 			addition = round(addition, 4)
 			self.__memory = addition
