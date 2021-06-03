@@ -48,18 +48,20 @@ After installation is done the you'll have to instantiate a Calculator class and
 250
 >>> calc.divide(2)
 125.0
->>> calc.divide(4.5)
-27.77777777777778
+calc.divide(4.5)
+27.7778
 >>> calc.multiply(4.5)
-125.0
+125.0001
 >>> calc.subtract(25)
-100.0
+100.0001
+>>> calc.subtract(2)
+98.0001
+>>> calc.add(2)
+100.0001
 >>> calc.root(2)
-10.0
+10.000004999998751
 >>> calc.reset()
 0
->>> calc.allocate(7)
-7
 >>> calc.set_memory(6)
 >>> calc.get_memory()
 6
