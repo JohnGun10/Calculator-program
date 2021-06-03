@@ -1,7 +1,6 @@
 """ Importing this module cause in methods I have two different return values, hence to solve some mypy errors
 	I am using Union for returning floats or None and if it breaks str"""
 from typing import Union
-# import doctest
 import math
 
 
