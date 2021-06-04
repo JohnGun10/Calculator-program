@@ -51,9 +51,9 @@ class Calculator:
 		"""
 		try:
 			"Rounding to four decimals and assignment"
-			addition = self.__memory + number
-			# addition = rouaddition, 4)
-			self.__memory = addition
+			# addition = self.__memory + number
+			# addition = roound(addition, 4)
+			self.__memory += number
 			return self.__memory
 		except ValueError: 
 			return "The value should be a float"
@@ -69,9 +69,9 @@ class Calculator:
 		"""
 		try:
 			"Rounding to four decimals and assignment"
-			division = self.__memory / number
+			# division = self.__memory / number
 			# division = round(division, 4)
-			self.__memory = division
+			self.__memory /= number
 			return self.__memory
 		except ValueError: 
 			return "The value should be a float"
@@ -91,9 +91,9 @@ class Calculator:
 		"""
 		try:
 			"Rounding to four decimals and assignment"
-			multiplication = self.__memory * number
+			# multiplication = self.__memory * number
 			# multiplication = round(multiplication, 4)
-			self.__memory = multiplication
+			self.__memory *= number
 			return self.__memory
 		except ValueError: 
 			return "The value should be a float"
@@ -109,9 +109,9 @@ class Calculator:
 		"""
 		try:
 			"Rounding to four decimals and assignment"
-			subtraction = self.__memory - number
+			# subtraction = self.__memory - number
 			# subtraction = round(subtraction, 4)
-			self.__memory = subtraction
+			self.__memory -= number
 			return self.__memory
 		except ValueError: 
 			return "The value should be a float"
