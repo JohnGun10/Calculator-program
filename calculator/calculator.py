@@ -21,12 +21,12 @@ class Calculator:
 		>>> calculator.get_memory()
 		4.0
 		"""
-		# try: 
-		return self.__memory
-		# except ValueError:
-		# 	return "The value should be a float"
-		# except TypeError:
-		# 	return "The value should be a float"
+		try: 
+			return self.__memory
+		except ValueError:
+			return "There shouldn't be a value. Just get_memory()"
+		except TypeError:
+			return "There shouldn't be a value. Just get_memory()"
 
 	def set_memory(self, new_memory: float) -> Any:
 		"""Sets the memory value 
@@ -175,5 +175,10 @@ class Calculator:
 		>>> calculator.allocate(16)
 		16
 		"""
-		self.__memory = 0
-		print(self.__memory)
+		try:
+			self.__memory = 0
+			print(self.__memory)
+		except ValueError:
+			return "There shouldn't be a value. Just reset()"
+		except TypeError:
+			return "There shouldn't be a value. Just reset()"
