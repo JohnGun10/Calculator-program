@@ -167,7 +167,7 @@ class Calculator:
 		except TypeError:
 			return "The value should be a float"
 
-	def reset(self) -> None:
+	def reset(self) -> Any:
 		"""Method to reset memory value
 		>>> calculator = Calculator()
 		>>> calculator.reset()
