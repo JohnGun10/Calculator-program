@@ -7,7 +7,7 @@ def test_addition_when_memory_value_equal_to_zero():
 	"""test of add method to see how it handles when you pass 2, 3.3222, 44 and class is initialized to zero"""
 	_calculator = Calculator()
 	additives = [2, 3.3222, 44]
-	products = [2, 5.3222, 49.3222]
+	products = [2, 5.3222000000000005, 49.3222]
 	for index, additive in enumerate(additives):
 		assert _calculator.add(additive) == products[index]
 
@@ -25,7 +25,7 @@ def test_addition_when_memory_value_equal_to_negative_one_various_range():
 	"""test of add method to see how it handles when you pass -77, 0, 184.55 and class is initialized to -73"""
 	_calculator = Calculator(-73)
 	additives = [0, -77, 184.55]
-	products = [-73, -150, 34.55]
+	products = [-73, -150, 34.55000000000001]
 	for index, additive in enumerate(additives):
 		assert _calculator.add(additive) == products[index]
 
@@ -44,7 +44,7 @@ def test_subtraction_when_memory_value_equal_to_negative_one_positive_range():
 	"""test of subtract method to see how it handles when you pass -57, 0, 74.55 and class is initialized to negative one"""
 	_calculator = Calculator(-1)
 	subtractives = [-57, 0, 74.55]
-	products = [56, 56, -18.55]
+	products = [56, 56, -18.549999999999997]
 	for index, subtractive in enumerate(subtractives):
 		assert _calculator.subtract(subtractive) == products[index]
 
@@ -121,7 +121,7 @@ def test_division_when_memory_value_equal_to_one_negative_range():
 	"""test of divide method to see how it handles when you pass negative numbers and class is initialized to one"""
 	_calculator = Calculator(1)
 	divisors = [-2, -3, -4]
-	products = [-0.5, 0.1667, -0.0417]
+	products = [-0.5, 0.16666666666666666, -0.041666666666666664]
 	for index, divisor in enumerate(divisors):
 		assert _calculator.divide(divisor) == products[index]
 

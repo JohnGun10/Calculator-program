@@ -21,13 +21,17 @@ class Calculator:
 		>>> calculator.get_memory()
 		4.0
 		"""
-		return self.__memory
+		try: 
+			return self.__memory
+		except ValueError:
+			return "The value should be a float"
+		except TypeError:
+			return "The value should be a float"
 
 	def set_memory(self, new_memory: float) -> Any:
 		"""Sets the memory value 
-		>>> calculator = Calculator(4.0)
-		>>> calculator.get_memory()
-		4.0
+		>>> calculator = Calculator()
+		>>> calculator.set_memory(4.0)
 		"""
 		try: 
 			new_memory == float(new_memory)
@@ -48,7 +52,7 @@ class Calculator:
 		try:
 			"Rounding to four decimals and assignment"
 			addition = self.__memory + number
-			addition = round(addition, 4)
+			# addition = rouaddition, 4)
 			self.__memory = addition
 			return self.__memory
 		except ValueError: 
@@ -66,7 +70,7 @@ class Calculator:
 		try:
 			"Rounding to four decimals and assignment"
 			division = self.__memory / number
-			division = round(division, 4)
+			# division = round(division, 4)
 			self.__memory = division
 			return self.__memory
 		except ValueError: 
@@ -88,7 +92,7 @@ class Calculator:
 		try:
 			"Rounding to four decimals and assignment"
 			multiplication = self.__memory * number
-			multiplication = round(multiplication, 4)
+			# multiplication = round(multiplication, 4)
 			self.__memory = multiplication
 			return self.__memory
 		except ValueError: 
@@ -106,7 +110,7 @@ class Calculator:
 		try:
 			"Rounding to four decimals and assignment"
 			subtraction = self.__memory - number
-			subtraction = round(subtraction, 4)
+			# subtraction = round(subtraction, 4)
 			self.__memory = subtraction
 			return self.__memory
 		except ValueError: 
