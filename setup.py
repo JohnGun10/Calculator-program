@@ -1,4 +1,9 @@
 # The essential file for info 
+# Calculator program
+#
+# Created by Aurimas A. Nausedas on 07/
+# Updated by Aurimas A. Nausedas on 11/05/21.
+                               
 import setuptools
 
 with open("README.md", "r") as fh:
