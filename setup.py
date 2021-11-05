@@ -3,7 +3,7 @@
 #
 # Created by Aurimas A. Nausedas on 05/15/21.
 # Updated by Aurimas A. Nausedas on 11/05/21.
-                        
+
 import setuptools
 
 with open("README.md", "r") as fh:
