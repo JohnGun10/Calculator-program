@@ -1,4 +1,4 @@
-# The calculator file | main file
+# The calculator & main file
 # Calculator program | calculator.py
 #
 # Created by Aurimas A. Nausedas on 05/15/21.
