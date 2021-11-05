@@ -1,9 +1,9 @@
 # The essential file for info 
-# Calculator program
+# Calculator program | Setup.py
 #
-# Created by Aurimas A. Nausedas on 07/
+# Created by Aurimas A. Nausedas on 06/04/21.
 # Updated by Aurimas A. Nausedas on 11/05/21.
-                               
+
 import setuptools
 
 with open("README.md", "r") as fh:
