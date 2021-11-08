@@ -10,7 +10,6 @@ from typing import Any, Union
 """ Importing typing module cause in methods I have two different return values, hence to solve some mypy errors
 	I am using Union and Any for returning floats or None and if it breaks str"""
 
-
 class Calculator:
 
 	""" A Calculator class does mathematical operations like addition,
