@@ -1,7 +1,8 @@
 # The essential file for info 
 # Calculator program | Setup.py
 #
-# Created by Aurimas A. Nausedas on 05/15/21.
+# Created by Aurimas A. Nausedas on 05/29/21.
+# Uploaded by Aurimas A. Nausedas on 05/29/21.
 # Updated by Aurimas A. Nausedas on 11/05/21.
 
 import setuptools
