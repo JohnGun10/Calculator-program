@@ -4,7 +4,7 @@
 # Created by Aurimas A. Nausedas on 05/15/21.
 # Uploaded by Aurimas A. Nausedas on 05/29/21.
 # Updated by Aurimas A. Nausedas on 11/08/21.
-   
+  
 import math
 from typing import Any, Union
 """ Importing typing module cause in methods I have two different return values, hence to solve some mypy errors
