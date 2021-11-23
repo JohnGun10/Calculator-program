@@ -22,7 +22,6 @@
 
 
 
-
 import math
 from typing import Any, Union
 """ Importing typing module cause in methods I have two different return values, hence to solve some mypy errors
